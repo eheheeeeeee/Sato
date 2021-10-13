@@ -296,10 +296,10 @@ BDB_CFLAGS =
 BDB_CPPFLAGS = 
 BDB_LIBS = -ldb_cxx-4.8
 BOOST_CHRONO_LIB = -lboost_chrono-mt-s
-BOOST_CPPFLAGS = -DBOOST_SP_USE_STD_ATOMIC -DBOOST_AC_USE_STD_ATOMIC -mthreads -Idepends/x86_64-pc-linux-gnu/share/../include
+BOOST_CPPFLAGS = -DBOOST_SP_USE_STD_ATOMIC -DBOOST_AC_USE_STD_ATOMIC -mthreads -I depends/x86_64-pc-linux-gnu/share/../include
 BOOST_FILESYSTEM_LIB = -lboost_filesystem-mt-s
-BOOST_LDFLAGS = -Ldepends/x86_64-pc-linux-gnu/share/../lib
-BOOST_LIBS = -Ldepends/x86_64-pc-linux-gnu/share/../lib -lboost_system-mt-s -lboost_filesystem-mt-s -lboost_program_options-mt-s -lboost_thread_win32-mt-s -lboost_chrono-mt-s
+BOOST_LDFLAGS = -L depends/x86_64-pc-linux-gnu/share/../lib
+BOOST_LIBS = -L depends/x86_64-pc-linux-gnu/share/../lib -lboost_system-mt-s -lboost_filesystem-mt-s -lboost_program_options-mt-s -lboost_thread_win32-mt-s -lboost_chrono-mt-s
 BOOST_PROGRAM_OPTIONS_LIB = -lboost_program_options-mt-s
 BOOST_SYSTEM_LIB = -lboost_system-mt-s
 BOOST_THREAD_LIB = -lboost_thread_win32-mt-s
@@ -321,7 +321,7 @@ COPYRIGHT_HOLDERS_SUBSTITUTION = Sato Core
 COPYRIGHT_YEAR = 2021
 CPP = x86_64-pc-linux-gnu-gcc -E
 CPPFILT = /usr/bin/x86_64-pc-linux-gnu-c++filt
-CPPFLAGS = -Idepends/x86_64-pc-linux-gnu/share/../include/  -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS -D_MT -DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -D_FILE_OFFSET_BITS=64
+CPPFLAGS = -I depends/x86_64-pc-linux-gnu/share/../include/  -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS -D_MT -DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -D_FILE_OFFSET_BITS=64
 CRYPTO_CFLAGS = 
 CRYPTO_LIBS = -lcrypto
 CXX = depends/x86_64-pc-linux-gnu/share/../native/bin/ccache x86_64-pc-linux-gnu-g++ -std=c++11
@@ -367,8 +367,7 @@ INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LCOV = 
 LCOV_OPTS = 
 LD = /usr/bin/x86_64-pc-linux-gnu-ld
-LDFLAGS = -L 
-depends/x86_64-pc-linux-gnu/share/../lib 
+LDFLAGS = -L depends/x86_64-pc-linux-gnu/share/../lib 
 LEVELDB_CPPFLAGS = 
 LEVELDB_TARGET_FLAGS = -DOS_WINDOWS
 LIBLEVELDB = 
@@ -438,15 +437,15 @@ QTXCBQPA_CFLAGS =
 QTXCBQPA_LIBS = 
 QT_DBUS_CFLAGS = 
 QT_DBUS_INCLUDES = 
-QT_DBUS_LIBS = -lQt5DBus -Ldepends/x86_64-pc-linux-gnu/share/../lib
-QT_INCLUDES = -Idepends/x86_64-pc-linux-gnu/share/../include -Idepends/x86_64-pc-linux-gnu/share/../include/QtCore -Idepends/x86_64-pc-linux-gnu/share/../include/QtGui -Idepends/x86_64-pc-linux-gnu/share/../include/QtWidgets -Idepends/x86_64-pc-linux-gnu/share/../include/QtNetwork -Idepends/x86_64-pc-linux-gnu/share/../include/QtTest -Idepends/x86_64-pc-linux-gnu/share/../include/QtDBus
+QT_DBUS_LIBS = -lQt5DBus -L depends/x86_64-pc-linux-gnu/share/../lib
+QT_INCLUDES = -I depends/x86_64-pc-linux-gnu/share/../include -I depends/x86_64-pc-linux-gnu/share/../include/QtCore -I depends/x86_64-pc-linux-gnu/share/../include/QtGui -I depends/x86_64-pc-linux-gnu/share/../include/QtWidgets -I depends/x86_64-pc-linux-gnu/share/../include/QtNetwork -I depends/x86_64-pc-linux-gnu/share/../include/QtTest -I depends/x86_64-pc-linux-gnu/share/../include/QtDBus
 QT_LDFLAGS =  -mwindows
-QT_LIBS = -lqwindows -lqminimal -lQt5Widgets -lQt5Network -lQt5Gui     -lQt5Core    -lqtharfbuzzng -lqtpcre -lqtpng -lz  -limm32  -Ldepends/x86_64-pc-linux-gnu/share/../lib -Ldepends/x86_64-pc-linux-gnu/share/../plugins/platforms
+QT_LIBS = -lqwindows -lqminimal -lQt5Widgets -lQt5Network -lQt5Gui     -lQt5Core    -lqtharfbuzzng -lqtpcre -lqtpng -lz  -limm32  -L depends/x86_64-pc-linux-gnu/share/../lib -L depends/x86_64-pc-linux-gnu/share/../plugins/platforms
 QT_PIE_FLAGS = -fPIE
 QT_SELECT = qt5
 QT_TEST_CFLAGS = 
 QT_TEST_INCLUDES = 
-QT_TEST_LIBS = -lQt5Test -Ldepends/x86_64-pc-linux-gnu/share/../lib
+QT_TEST_LIBS = -lQt5Test -L depends/x86_64-pc-linux-gnu/share/../lib
 QT_TRANSLATION_DIR = depends/x86_64-pc-linux-gnu/share/../translations
 RANLIB = /usr/bin/x86_64-pc-linux-gnu-ranlib
 RCC = depends/x86_64-pc-linux-gnu/share/../native/bin/rcc
@@ -1334,6 +1333,4 @@ clean-local: clean-docs
 	rm -rf coverage_percent.txt test_sato.coverage/ total.coverage/ test/tmp/ cache/ $(OSX_APP)
 	rm -rf test/functional/__pycache__
 
-# Tell versions [3.59,3.63) of GNU make to not export all variables.
-# Otherwise a system limit (for SysV at least) may be exceeded.
-.NOEXPORT:
+
